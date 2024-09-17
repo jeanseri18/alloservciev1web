@@ -1,0 +1,322 @@
+@extends('layouts.public')
+
+@section('title', 'Welcome | Geeks')
+
+@section('content')
+<section class="bg-light" style="background: linear-gradient(to right top, #0470B8, #023252), no-repeat right; background-size: auto; background-position: right; height: 500px;">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center justify-content-center">
+            <div class="col-xl-12 col-lg-12 text-center">
+                <h1 class="display-2 text-white">La plateforme des pros en Côte d’Ivoire</h1>
+                <p class="fs-3 text-white mb-4">Saisissez votre localité et votre besoin pour lancer une recherche</p>
+                
+                <div class="row justify-content-center">
+                    <div class="col-md-10 col-lg-8" style="background:#0470B843; padding: 20px; border-radius: 8px;">
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" placeholder="Localisation">
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" placeholder="categorie">
+                            </div>
+                            <div class="col-md-4 d-flex align-items-end">
+                                <button type="submit" class="btn btn-primary w-100">Rechercher</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-lg-8 pb-6">
+  <div class="container pb-lg-6">
+    <!--row-->
+    <div class="row">
+      <div class="col-12">
+        <div class="text-center mb-6">
+          <!--heading-->
+          <h2 class="mb-0 h1">Explorez les entreprises  par Catégorie</h2>
+        </div>
+      </div>
+    </div>
+    <!--row-->
+    <div class="row gy-4">
+      <!-- Restaurant Card -->
+      <div class="col-xxl-2 col-md-4 col-12">
+        <a href="#restaurant" class="card card-border-primary rounded-4" aria-label="Explorez les Mentors en Restaurant">
+          <div class="card-body d-flex flex-column gap-4 text-center">
+            <div>
+              <!--icon-->
+              <div class="icon-shape icon-xxl bg-light-danger rounded-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-basket text-danger" viewBox="0 0 16 16">
+                  <path d="M5.5 0a.5.5 0 0 1 .5.5v.5h5v-.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H14v1.542l-1.842 7.368A1.5 1.5 0 0 1 10.688 14H5.312a1.5 1.5 0 0 1-1.47-1.59L2 5.542V4H.5A.5.5 0 0 1 0 3.5v-1A.5.5 0 0 1 .5 2h.5V1a.5.5 0 0 1 .5-.5h2zm4 3v1H6V3h3zm1.5 2.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H6a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h4zM3.455 6.548L5.49 12h5.02l1.944-5.452H3.455zM6.5 5h3v1H6.5V5z"></path>
+                </svg>
+              </div>
+            </div>
+            <!--content-->
+            <div>
+              <h3 class="mb-0">Restaurant</h3>
+              <span>12 Mentors</span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <!-- Beauté Card -->
+      <div class="col-xxl-2 col-md-4 col-12">
+        <a href="#beaute" class="card card-border-primary rounded-4" aria-label="Explorez les Mentors en Beauté">
+          <div class="card-body d-flex flex-column gap-4 text-center">
+            <div>
+              <!--icon-->
+              <div class="icon-shape icon-xxl bg-light-success rounded-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-paint-bucket text-success" viewBox="0 0 16 16">
+                  <path d="M9.5 0a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H8.5a.5.5 0 0 1-.5-.5V.5A.5.5 0 0 1 8.5 0h1zm2.646 2.646a.5.5 0 0 1 .707 0l1.5 1.5a.5.5 0 0 1 0 .707l-.354.354a.5.5 0 0 1-.707 0l-1.5-1.5a.5.5 0 0 1 0-.707l.354-.354zm-1.607 1.794a.5.5 0 0 1 .637-.026l2.853 2.853a.5.5 0 0 1 .026.637L12.5 8l-2.853-2.853-.707-.707L8.707 7l-1.254-1.254zM1 7a.5.5 0 0 1 .5-.5h2A.5.5 0 0 1 4 7v1.5a.5.5 0 0 1-.5.5h-2A.5.5 0 0 1 1 8.5V7zM4.5 5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1A.5.5 0 0 1 4 6.5v-1A.5.5 0 0 1 4.5 5zM0 1a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v3H0V1zm5 4H2v2h3V5zM15.5 8a.5.5 0 0 1 .5.5V9a.5.5 0 0 1-.5.5H15a.5.5 0 0 1-.5-.5V8.5A.5.5 0 0 1 15 8h.5zM15 11.5V14a.5.5 0 0 1-.5.5H9.5a.5.5 0 0 1-.5-.5v-2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5zm-1 0v2h-4v-2h4z"></path>
+                </svg>
+              </div>
+            </div>
+            <!--content-->
+            <div>
+              <h3 class="mb-0">Beauté</h3>
+              <span>15 Mentors</span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <!-- Plombier Card -->
+      <div class="col-xxl-2 col-md-4 col-12">
+        <a href="#plombier" class="card card-border-primary rounded-4" aria-label="Explorez les Mentors en Plomberie">
+          <div class="card-body d-flex flex-column gap-4 text-center">
+            <div>
+              <!--icon-->
+              <div class="icon-shape icon-xxl bg-light-warning rounded-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-wrench text-warning" viewBox="0 0 16 16">
+                  <path d="M4.646 1.646a.5.5 0 0 1 .708 0L9.5 4.5l3.646-3.646a.5.5 0 0 1 .708.708L10.207 5.5l3.646 3.646a.5.5 0 0 1-.708.708L9.5 6.207 5.854 9.854a.5.5 0 0 1-.708-.708L8.793 5.5 5.146 1.854a.5.5 0 0 1 .708-.708zM3 1a2 2 0 0 1 2 2v3.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5V3a2 2 0 0 1 2-2h3a.5.5 0 0 1 .5.5v.5H14a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1.5v2a.5.5 0 0 0 .5.5h2.5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-2.5a.5.5 0 0 0-.5.5v2.5a.5.5 0 0 1-.5.5H2.5a.5.5 0 0 1-.5-.5v-2.5a.5.5 0 0 0-.5-.5H1a.5.5 0 0 1-.5-.5V6a.5.5 0 0 1 .5-.5h2.5V3a.5.5 0 0 1-.5-.5V1a2 2 0 0 1 2-2h3zm1 1.5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1V2.5a1 1 0 0 0-1-1h-3z"></path>
+                </svg>
+              </div>
+            </div>
+            <!--content-->
+            <div>
+              <h3 class="mb-0">Plombier</h3>
+              <span>10 Mentors</span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <!-- Electricien Card -->
+      <div class="col-xxl-2 col-md-4 col-12">
+        <a href="#electricien" class="card card-border-primary rounded-4" aria-label="Explorez les Mentors en Électricité">
+          <div class="card-body d-flex flex-column gap-4 text-center">
+            <div>
+              <!--icon-->
+              <div class="icon-shape icon-xxl bg-light-primary rounded-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-lightning text-primary" viewBox="0 0 16 16">
+                  <path d="M11.2 1.2a.5.5 0 0 1 .8.4V6H15a.5.5 0 0 1 .4.8l-5.5 9a.5.5 0 0 1-.8-.4V10H1a.5.5 0 0 1-.4-.8l5.5-9a.5.5 0 0 1 .8.4v5H15a.5.5 0 0 1 .4.8l-5.5 9a.5.5 0 0 1-.8-.4V7.5H1a.5.5 0 0 1-.4-.8L5.5 1a.5.5 0 0 1 .8-.4z"></path>
+                </svg>
+              </div>
+            </div>
+            <!--content-->
+            <div>
+              <h3 class="mb-0">Électricien</h3>
+              <span>9 Mentors</span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <!-- Comptable Card -->
+      <div class="col-xxl-2 col-md-4 col-12">
+        <a href="#comptable" class="card card-border-primary rounded-4" aria-label="Explorez les Mentors en Comptabilité">
+          <div class="card-body d-flex flex-column gap-4 text-center">
+            <div>
+              <!--icon-->
+              <div class="icon-shape icon-xxl bg-light-info rounded-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-calculator text-info" viewBox="0 0 16 16">
+                  <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5V2h1a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-.5.5h-1v.5a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14H4v.5a.5.5 0 0 1-.5.5H1a.5.5 0 0 1-.5-.5V2a.5.5 0 0 1 .5-.5h1V.5A.5.5 0 0 1 3.5 0h3zM2 2v11h12V2H2zm1.5 1h2v2h-2V3zm3.5 0h2v2h-2V3zm3.5 0h2v2h-2V3zm-7 3h2v2H4V6zm3.5 0h2v2h-2V6zm3.5 0h2v2h-2V6zm-7 3h2v2H4v-2zm3.5 0h2v2h-2v-2zm3.5 0h2v2h-2v-2z"></path>
+                </svg>
+              </div>
+            </div>
+            <!--content-->
+            <div>
+              <h3 class="mb-0">Comptable</h3>
+              <span>8 Mentors</span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <!-- Notaire Card -->
+      <div class="col-xxl-2 col-md-4 col-12">
+        <a href="#notaire" class="card card-border-primary rounded-4" aria-label="Explorez les Mentors en Notariat">
+          <div class="card-body d-flex flex-column gap-4 text-center">
+            <div>
+              <!--icon-->
+              <div class="icon-shape icon-xxl bg-light-dark rounded-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-file-earmark-text text-dark" viewBox="0 0 16 16">
+                  <path d="M7 0a1 1 0 0 1 1 1v2a.5.5 0 0 0 .5.5H13a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h3.5A.5.5 0 0 0 6 2V1a1 1 0 0 1 1-1zM2 4v11h12V4H7v1a.5.5 0 0 1-.5.5H2zm1 2h6v1H3v-1zm0 2h6v1H3v-1zm0 2h6v1H3v-1zm0 2h6v1H3v-1z"></path>
+                </svg>
+              </div>
+            </div>
+            <!--content-->
+            <div>
+              <h3 class="mb-0">Notaire</h3>
+              <span>6 Mentors</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="container py-5">
+    <!-- Description and Statistics -->
+    <div class="row text-center mb-5">
+        <div class="col-12 mb-4">
+            <div class="row align-items-center">
+                <div class="col-md-12 text-left">
+                    <h3>Description</h3>
+                </div>
+                <div class="col-md-8 text-left">
+                    <h1 class="display-5">Avec Alloservice <span class="text-primary"> rencontrez le pro qu'il vous faut !</span></h1>
+                </div>
+                <div class="col-md-4 text-left">
+                    <div class="d-flex justify-content-left align-items-left">
+                        <div class="me-4">
+                            <h2 class="mb-0">200 K</h2>
+                            <p class="mb-0">Professionnels</p>
+                        </div>
+                        <div class="me-4">
+                            <h2 class="mb-0">200 K</h2>
+                            <p class="mb-0">Avis enregistrés</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cards -->
+        <div class="col-lg-4 col-md-6 col-12 mb-4">
+            <div class="card p-4">
+                <div class="display-4 text-primary mb-3 text-center">
+                    <i class="fe fe-award" style="font-size: 3rem;"></i>
+                </div>
+                <h3 class="fw-semibold mb-2 text-center">La plateforme des pros en Côte d’Ivoire</h3>
+                <p class="fs-4 mb-0 text-center">Retrouvez plus de 80% des professionnels à travers la Côte d’Ivoire.</p>
+                <br>
+                <br> </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-12 mb-4">
+            <div class="card p-4">
+                <div class="display-4 text-primary mb-3 text-center">
+                    <i class="fe fe-user" style="font-size: 3rem;"></i>
+                </div>
+                <h3 class="fw-semibold mb-2 text-center">Mise à jour en temps réel des informations</h3>
+                <p class="fs-4 mb-0 text-center">Les horaires, les prestations, les actus, les coordonnées, les itinéraires, etc. de chaque professionnel sont actualisés quotidiennement.</p>
+                <br>
+                
+         </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-12 mb-4">
+            <div class="card p-4">
+                <div class="display-4 text-primary mb-3 text-center">
+                    <i class="fe fe-users" style="font-size: 3rem;"></i>
+                </div>
+                <h3 class="fw-semibold mb-2 text-center">Choisissez votre fournisseur sur la base des avis clients</h3>
+                <p class="fs-4 mb-0 text-center">Des avis, notes d’utilisateurs, photos, labels, … pour vous aider à faire les bons choix.</p>
+                <br>
+                <br></div>
+        </div>
+    </div>
+
+    <!-- Promotional Section -->
+    <div class="row align-items-center gx-0 rounded-3" style="background:#02385C">
+        <div class="col-lg-3 col-12 d-none d-lg-block">
+            <div class="d-flex justify-content-center">
+                <div class="position-relative">
+                    <img src="../../assets/happy-business-woman-showing-hand-removebg-preview.png" alt="image" class="img-fluid mt-n8">
+                    <div class="ms-n8 position-absolute bottom-0 start-0 mb-6">
+                        <img src="../../assets/images/svg/dollor.svg" alt="dollor">
+                    </div>
+                    <div class="me-n4 position-absolute top-0 end-0">
+                        <img src="../../assets/images/svg/graph.svg" alt="graph">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-1"></div>
+
+        <div class="col-lg-6 col-12">
+            <div class="text-white p-5 p-lg-0">
+                <h2 class="h1 text-white">Professionnels, gérez Gratuitement votre fiche d’entreprise AlloService</h2>
+                <p class="mb-0">Gérez gratuitement toutes vos informations, vos avis, vos publications et bien plus encore directement depuis notre plateforme.</p>
+                <a href="#" class="btn btn-white mt-4">Je crée mon compte</a>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="py-lg-8 pb-6">
+  <div class="container pb-lg-6">
+    <!--row-->
+    <div class="row">
+      <div class="col-12">
+        <div class="text-center mb-6">
+          <!--heading-->
+          <h2 class="mb-0 h1">Les secteurs les plus consultés</h2>
+        </div>
+      </div>
+    </div>
+    <!--row-->
+    <div class="row gy-4">
+      <!-- Restaurant Card -->
+      <div class="col-xxl-4 col-md-6 col-12">
+        <a href="#restaurant" class="card card-border-primary rounded-4">
+          <div class="card-body d-flex flex-column gap-4 text-center">
+            <div>
+              <!--image-->
+              <img src="assets/side-view-man-having-lunch-restaurant 1.png" alt="Restaurant" class="img-fluid rounded-4">
+            </div>
+            <!--content-->
+            <div>
+              <h3 class="mb-0">Restaurant</h3>
+            </div>
+          </div>
+        </a>
+      </div>
+      <!-- Immobilier Card -->
+      <div class="col-xxl-4 col-md-6 col-12">
+        <a href="#immobilier" class="card card-border-primary rounded-4">
+          <div class="card-body d-flex flex-column gap-4 text-center">
+            <div>
+              <!--image-->
+              <img src="assets/portrait-person-working-construction-industry 1.png" alt="Immobilier" class="img-fluid rounded-4">
+            </div>
+            <!--content-->
+            <div>
+              <h3 class="mb-0">Immobilier</h3>
+            </div>
+          </div>
+        </a>
+      </div>
+      <!-- Hôtel Card -->
+      <div class="col-xxl-4 col-md-6 col-12">
+        <a href="#hotel" class="card card-border-primary rounded-4">
+          <div class="card-body d-flex flex-column gap-4 text-center">
+            <div>
+              <!--image-->
+              <img src="assets/hammocks-with-palm-trees 1.png" alt="Hôtel" class="img-fluid rounded-4">
+            </div>
+            <!--content-->
+            <div>
+              <h3 class="mb-0">Hôtel</h3>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+@endsection
