@@ -1,11 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Éditer un Horaire</h1>
+<br>
+<div class="row container">
+
+<div class="col-md-8 card">
 
     <form action="{{ route('horaires.update', $horaire) }}" method="POST">
         @csrf
-        @method('PUT')
+        @method('PUT') <br> <h1>Éditer un Horaire</h1><hr/>
         <div class="form-group">
             <label for="jour_semaine">Jour de la Semaine</label>
             <select name="jour_semaine" id="jour_semaine" class="form-control" required>
@@ -18,22 +21,25 @@
                 <option value="Samedi" {{ old('jour_semaine', $horaire->jour_semaine) == 'Samedi' ? 'selected' : '' }}>Samedi</option>
                 <option value="Dimanche" {{ old('jour_semaine', $horaire->jour_semaine) == 'Dimanche' ? 'selected' : '' }}>Dimanche</option>
             </select>
-        </div>
+        </div><br>
         <div class="form-group">
             <label for="heure_ouverture">Heure d'Ouverture</label>
             <input type="time" name="heure_ouverture" id="heure_ouverture" class="form-control" value="{{ old('heure_ouverture', $horaire->heure_ouverture) }}" required>
-        </div>
+        </div><br>
         <div class="form-group">
             <label for="heure_fermeture">Heure de Fermeture</label>
             <input type="time" name="heure_fermeture" id="heure_fermeture" class="form-control" value="{{ old('heure_fermeture', $horaire->heure_fermeture) }}" required>
-        </div>
+        </div><br>
         <div class="form-group">
             <label for="statut_ouverture">Statut d'Ouverture</label>
             <select name="statut_ouverture" id="statut_ouverture" class="form-control" required>
                 <option value="1" {{ old('statut_ouverture', $horaire->statut_ouverture) == 1 ? 'selected' : '' }}>Ouvert</option>
                 <option value="0" {{ old('statut_ouverture', $horaire->statut_ouverture) == 0 ? 'selected' : '' }}>Fermé</option>
             </select>
-        </div>
+        </div><br>
         <button type="submit" class="btn btn-primary">Mettre à jour</button>
-    </form>
+        <br><br> </form></div>
+<div class="col-md-4">
+</div>
+</div>
 @endsection

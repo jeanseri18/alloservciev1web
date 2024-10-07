@@ -30,13 +30,15 @@ class ProfessionnelController extends Controller
             'nom' => 'required|string|max:255',
             'domaine' => 'required|exists:sous_categories,id', // Validation pour la sous-catégorie
             'ville' => 'required|string|max:255',
+            'commune' => 'required|string|max:255',
+            'prixprestation' => 'nullable|string|max:255',
             'detail' => 'nullable|string',
             'telephone' => 'required|string|max:20',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('public/images');
+            $imagePath = $request->file('image')->store('images', 'public');
             $validated['image'] = basename($imagePath);
         }
 
@@ -44,7 +46,7 @@ class ProfessionnelController extends Controller
 
         Professionnel::create($validated);
 
-        return redirect()->route('dashboard.professionnel.index')->with('success', 'Professionnel créé avec succès.');
+        return redirect()->route('professionnels.index')->with('success', 'Professionnel créé avec succès.');
     }
 
     // Affiche les détails d'un professionnel
@@ -67,6 +69,8 @@ class ProfessionnelController extends Controller
             'nom' => 'required|string|max:255',
             'domaine' => 'required|exists:sous_categories,id', // Validation pour la sous-catégorie
             'ville' => 'required|string|max:255',
+            'commune' => 'required|string|max:255',
+            'prixprestation' => 'nullable|string|max:255',
             'detail' => 'nullable|string',
             'telephone' => 'required|string|max:20',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -78,13 +82,13 @@ class ProfessionnelController extends Controller
                 Storage::delete('public/images/' . $professionnel->image);
             }
 
-            $imagePath = $request->file('image')->store('public/images');
+            $imagePath = $request->file('image')->store('images', 'public');
             $validated['image'] = basename($imagePath);
         }
 
         $professionnel->update($validated);
 
-        return redirect()->route('dashboard.professionnel.index')->with('success', 'Professionnel mis à jour avec succès.');
+        return redirect()->route('professionnels.index')->with('success', 'Professionnel mis à jour avec succès.');
     }
 
     // Supprime un professionnel
@@ -96,6 +100,6 @@ class ProfessionnelController extends Controller
         }
 
         $professionnel->delete();
-        return redirect()->route('dashboard.professionnel.index')->with('success', 'Professionnel supprimé avec succès.');
+        return redirect()->route('professionnels.index')->with('success', 'Professionnel supprimé avec succès.');
     }
 }

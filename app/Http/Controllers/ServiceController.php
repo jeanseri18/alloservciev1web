@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Service;
 use Illuminate\Http\Request;
@@ -34,6 +35,7 @@ class ServiceController extends Controller
             $imagePath = $request->file('image')->store('public/images');
             $validated['image'] = basename($imagePath);
         }
+        $validated['user_id']=auth()->user()->id;
 
         Service::create($validated);
 

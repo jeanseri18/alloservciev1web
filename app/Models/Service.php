@@ -12,6 +12,11 @@ class Service extends Model
     protected $fillable = [
         'nom',
         'description',
-        'image'
+        'image',
+        'user_id'
     ];
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

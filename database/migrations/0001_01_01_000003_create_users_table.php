@@ -21,9 +21,11 @@ return new class extends Migration
             $table->string('entreprise')->nullable();
             $table->string('registre_de_commerce')->nullable();
             $table->string('adresse')->nullable();
+            $table->string('description')->nullable();
             $table->string('telephone')->nullable();
             $table->text('mot_cle')->nullable();
-            $table->unsignedBigInteger('souscategorie_id')>nullable();
+            $table->unsignedBigInteger('souscategorie_id')->nullable();
+            $table->unsignedBigInteger('categorie_id')->nullable();
             $table->decimal('latitude', 10, 8)->nullable();
             $table->decimal('longitude', 11, 8)->nullable();
             $table->string('facebook')->nullable();
@@ -33,7 +35,8 @@ return new class extends Migration
             $table->timestamps();
             $table->enum('roles', ['client', 'entreprise', 'professionnel', 'admin']);
             $table->boolean('statut')->default(true);
-            $table->foreign('souscategorie_id')->references('id')->on('souscategories')->onDelete('cascade');
+            $table->foreign('souscategorie_id')->references('id')->on('sous_categories')->onDelete('cascade');
+            $table->foreign('categorie_id')->references('id')->on('categories')->onDelete('cascade');
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

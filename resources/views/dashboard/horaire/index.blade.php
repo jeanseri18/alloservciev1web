@@ -69,9 +69,14 @@ input:checked + .slider:before {
 </style>
 
 <div class="container">
-    <h1>Horaires</h1>
+<br>
+    <div class="row">
+        <div class="col-md-9">
+            <h3 class="mb-4">Horaires</h3>
+</div>
+                <div class="col-md-3">
     <a href="{{ route('horaires.create') }}" class="btn btn-primary mb-3">Ajouter un Horaire</a>
-
+</div></div><hr>
     @if(session('success'))
         <div class="alert alert-success mt-3">
             {{ session('success') }}
@@ -129,7 +134,39 @@ input:checked + .slider:before {
             @endforeach
         </tbody>
     </table>
+   
+    @if(session('successprofile'))
+                        <div class="alert alert-success text-left">
+                            {{ session('successprofile') }}
+                        </div>
+                        @endif
+<hr>
+                        <!-- Formulaire pour les informations personnelles -->
+                        <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
+                              <!-- Réseaux Sociaux -->
+                <h3 class="mt-4 text-left">Réseaux Sociaux</h3>
+                <hr>
+                <div class="form-group">
+                    <label for="facebook"><i class="fa fa-facebook"></i> Facebook</label>
+                    <input type="text" name="facebook" id="facebook" class="form-control " value="{{ old('facebook', $user->facebook) }}">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="whatsapp"><i class="fa fa-whatsapp"></i> WhatsApp</label>
+                    <input type="text" name="whatsapp" id="whatsapp" class="form-control " value="{{ old('whatsapp', $user->whatsapp) }}">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="youtube"><i class="fa fa-youtube"></i> YouTube</label>
+                    <input type="text" name="youtube" id="youtube" class="form-control " value="{{ old('youtube', $user->youtube) }}">
+                </div><bR>
+                <div class="form-group text-right">
+                                <button type="submit" class="btn btn-primary">Mettre à jour</button>
+                            </div></form>
 </div>
+
 @endsection
 
 

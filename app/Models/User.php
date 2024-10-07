@@ -25,8 +25,10 @@ class User extends Authenticatable
         'registre_de_commerce',
         'adresse',
         'telephone',
+        'description',
         'mot_cle',
         'souscategorie_id',
+        'categorie_id',
         'latitude',
         'longitude',
         'facebook',
@@ -58,4 +60,29 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    // App/Models/User.php
+
+public function avis()
+{
+    return $this->hasMany(Avis::class, 'user_id', 'id');
+}
+public function services()
+{
+    return $this->hasMany(Service::class, 'user_id', 'id'); // Adapte en fonction de ta structure de base de données
+}
+
+// Relation avec les professionnels
+public function professionnels()
+{
+    return $this->hasMany(Professionnel::class, 'user_id', 'id'); // Adapte en fonction de ta structure de base de données
+}
+public function horaires()
+{
+    return $this->hasMany(Horaire::class, 'user_id', 'id'); // Adapte en fonction de ta structure de base de données
+}
+public function avisCount()
+{
+    return $this->avis()->count();
+}
+
 }

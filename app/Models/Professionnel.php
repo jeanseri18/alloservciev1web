@@ -13,6 +13,8 @@ class Professionnel extends Model
         'nom',
         'domaine',
         'ville',
+        'commune',
+        'prixprestation',
         'detail',
         'telephone',
         'image',
@@ -25,4 +27,9 @@ class Professionnel extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
-    }}
+    }
+    public function avis()
+    {
+        return $this->hasMany(Avis::class, 'professionnel_id', 'id');
+    }
+}

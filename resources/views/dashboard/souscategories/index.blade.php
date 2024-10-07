@@ -4,9 +4,14 @@
 
 @section('content')
 <div class="container">
-    <h1 class="mb-4">Sous-catégories</h1>
-    <a href="{{ route('souscategories.create') }}" class="btn btn-primary mb-3">Ajouter une Sous-catégorie</a>
 
+   <br>
+    <div class="row">
+        <div class="col-md-9">
+            <h3 class="mb-4">Liste des sous-categories</h3>
+</div>
+                <div class="col-md-3">    <a href="{{ route('souscategories.create') }}" class="btn btn-primary mb-3">Ajouter une sous-catégorie</a>
+</div></div><hr>
     @if(session('success'))
         <div class="alert alert-success mt-3">
             {{ session('success') }}
@@ -70,19 +75,19 @@
             "responsive": true,
             "lengthMenu": [10, 25, 50, 75, 100],
             "language": {
-                "search": "Filter records:",
-                "lengthMenu": "Show _MENU_ records per page",
+                "search": "Filtre:",
+                "lengthMenu": "Afficher _MENU_ par page",
                 "zeroRecords": "No matching records found",
-                "info": "Showing page _PAGE_ of _PAGES_",
-                "infoEmpty": "No records available",
-                "infoFiltered": "(filtered from _MAX_ total records)"
+                "info": "Affichage de la page _PAGE_ sur _PAGES_",
+                "infoEmpty": "pas de données",
+                "infoFiltered": "(filtrer  _MAX_ total records)"
             },
             dom: '<"row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6"B>>t<"row"<"col-sm-12 col-md-5"i><"col-sm-12 col-md-7"p>>',
             buttons: [
                 {
                     extend: 'copyHtml5',
                     title: 'Sous-catégories Report',
-                    text: '<i class="fas fa-copy"></i> Copy',
+                    text: '<i class="fas fa-copy"></i> copier',
                     className: 'btn btn-secondary btn-sm'
                 },
                 {
@@ -105,14 +110,10 @@
                 },
                 {
                     extend: 'print',
-                    text: '<i class="fas fa-print"></i> Print',
+                    text: '<i class="fas fa-print"></i> imprimer',
                     className: 'btn btn-secondary btn-sm'
                 },
-                {
-                    extend: 'colvis',
-                    text: '<i class="fas fa-columns"></i> Column Visibility',
-                    className: 'btn btn-secondary btn-sm'
-                }
+             
             ],
             initComplete: function () {
                 $('.dt-buttons').addClass('mb-3');

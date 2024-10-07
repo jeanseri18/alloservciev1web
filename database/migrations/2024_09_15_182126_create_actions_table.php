@@ -15,8 +15,9 @@ class CreateActionsTable extends Migration
     {
         Schema::create('actions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Lien avec l'utilisateur
-            $table->enum('action_type', ['visit_profile', 'make_call']); // Type d'action
+            $table->string('id_type')->nullable();
+            $table->string('user_id')->nullable();
+            $table->enum('action_type', ['visit_profile', 'make_call','professionel','entreprise']); // Type d'action
             $table->timestamp('action_time')->nullable(); // Date et heure de l'action
             $table->timestamps();
         });

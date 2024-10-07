@@ -1,6 +1,6 @@
 @extends('layouts.auth')
 
-@section('title', 'Login')
+@section('title', 'Connexion')
 
 @section('content')
 <div class="d-flex flex-column flex-lg-row flex-column-fluid">
@@ -9,10 +9,10 @@
         <div class="d-flex flex-column flex-center p-6 p-lg-10 w-100" style="background: linear-gradient(#0470B8, #023252);">
             <img class="d-none d-lg-block mx-auto w-300px w-lg-75 w-xl-500px mb-10 mb-lg-20" src="{{ asset('dashboard/assets/media/logos/_ALLO-SERVICES-LOGO-BLANC 3.png') }}" alt="Logo"/>
             <h1 class="d-none d-lg-block text-white fs-2qx fw-bold text-center mb-7">
-                Fast, Efficient and Productive
+                Rapide, Efficace et Productif
             </h1>
             <div class="d-none d-lg-block text-white fs-base text-center">
-                Welcome back! Please login to your account.
+                Bon retour ! Veuillez vous connecter à votre compte.
             </div>
         </div>
     </div>
@@ -28,10 +28,10 @@
                     <!--begin::Heading-->
                     <div class="text-center mb-11">
                         <h1 class="text-gray-900 fw-bolder mb-3">
-                            Sign In
+                            Connexion
                         </h1>
                         <div class="text-gray-500 fw-semibold fs-6">
-                            Your Social Campaigns
+                            Vos Campagnes Sociales
                         </div>
                     </div>
                     <!--end::Heading-->
@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="fv-row mb-3">
-                        <input type="password" placeholder="Password" name="password" autocomplete="off" class="form-control bg-transparent @error('password') is-invalid @enderror" required/>
+                        <input type="password" placeholder="Mot de passe" name="password" autocomplete="off" class="form-control bg-transparent @error('password') is-invalid @enderror" required/>
                         @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -60,7 +60,7 @@
                     <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
                         <div></div>
                         <a href="{{ route('password.request') }}" class="link-primary">
-                            Forgot Password?
+                            Mot de passe oublié ?
                         </a>
                     </div>
                     <!--end::Wrapper-->
@@ -68,16 +68,16 @@
                     <!--begin::Submit button-->
                     <div class="d-grid mb-10">
                         <button type="submit" class="btn btn-primary">
-                            <span class="indicator-label">Sign In</span>
+                            <span class="indicator-label">Connexion</span>
                         </button>
                     </div>
                     <!--end::Submit button-->
 
                     <!--begin::Sign up-->
                     <div class="text-gray-500 text-center fw-semibold fs-6">
-                        Not a Member yet?
+                        Pas encore membre ?
                         <a href="{{ route('register') }}" class="link-primary">
-                            Sign up
+                            Inscrivez-vous
                         </a>
                     </div>
                     <!--end::Sign up-->

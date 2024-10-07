@@ -1,8 +1,11 @@
 @extends('layouts.app')
 
-@section('content')
-    <h1>Ajouter un Horaire</h1>
-
+@section('content')<br>
+   
+    <div class="row container">
+      
+                <div class="col-md-8 card  mb-4"> <br><h3>Ajouter un Horaire</h3>
+<hr/>
     <form action="{{ route('horaires.store') }}" method="POST">
         @csrf
         <div class="form-group">
@@ -17,22 +20,25 @@
                 <option value="Samedi">Samedi</option>
                 <option value="Dimanche">Dimanche</option>
             </select>
-        </div>
+        </div><br>
         <div class="form-group">
             <label for="heure_ouverture">Heure d'Ouverture</label>
             <input type="time" name="heure_ouverture" id="heure_ouverture" class="form-control" required>
-        </div>
+        </div><br>
         <div class="form-group">
             <label for="heure_fermeture">Heure de Fermeture</label>
             <input type="time" name="heure_fermeture" id="heure_fermeture" class="form-control" required>
-        </div>
+        </div><br>
         <div class="form-group">
             <label for="statut_ouverture">Statut d'Ouverture</label>
             <select name="statut_ouverture" id="statut_ouverture" class="form-control" required>
                 <option value="1">Ouvert</option>
                 <option value="0">Fermé</option>
             </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Enregistrer</button>
-    </form>
+        </div><br>
+        <button type="submit" class="btn btn-primary">Enregistrer</button></br>
+    </form><br><br></div>   <br>
+        <div class="col-md-4">
+</div></div>
+              
 @endsection

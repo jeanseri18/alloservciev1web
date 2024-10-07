@@ -14,5 +14,10 @@ class Horaire extends Model
         'heure_ouverture',
         'heure_fermeture',
         'statut_ouverture',
+        'user_id',
     ];
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

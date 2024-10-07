@@ -10,6 +10,7 @@ class Action extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id_type',
         'user_id',
         'action_type',
         'action_time',

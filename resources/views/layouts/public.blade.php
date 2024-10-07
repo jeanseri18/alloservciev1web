@@ -51,8 +51,8 @@
             <ul class="navbar-nav mt-3 mt-lg-0 mx-xxl-auto">
                 <li><a href="{{ route('entreprise') }}" class="dropdown-item">Trouvez une entreprise </a></li>
                 <li><a href="{{ route('pro') }}" class="dropdown-item">Trouvez un professionnel</a></li>
-                <li><a href="{{ route('help') }}"" class="dropdown-item">Comment ça marche</a></li>
-                <li><a href="" class="dropdown-item">Annuaire</a></li>
+                <li><a href="{{ route('help') }}" class="dropdown-item">Comment ça marche</a></li>
+                <li><a href="{{ route('annuaire.index') }}" class="dropdown-item">Annuaire</a></li>
             </ul>
         </div>
     </div>
@@ -66,7 +66,7 @@
     </main>
 <!-- Footer -->
 <!-- Footer -->
-<footer class="footer bg-dark-stable py-8">
+<footer class="footer bg-dark-stable py-8" style="background:#023252">
     <div class="container">
         <div class="row gy-6 gy-xl-0 pb-8">
             <div class="col-xl-6 col-lg-12 col-md-7 col-12">
@@ -105,7 +105,7 @@
          
            
         </div>
-        <div class="bg-dark py-4">
+        <div class="py-4" style="background:#023252">
             <div class="container text-center">
                 <span class="text-white">© 2024 Allo services Tous droits réservés.</span>
             </div>

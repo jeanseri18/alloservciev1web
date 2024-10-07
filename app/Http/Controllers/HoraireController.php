@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Horaire;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HoraireController extends Controller
 {
@@ -10,7 +11,8 @@ class HoraireController extends Controller
     public function index()
     {
         $horaires = Horaire::all();
-        return view('dashboard.horaire.index', compact('horaires'));
+        $user =Auth::user();
+        return view('dashboard.horaire.index', compact('horaires','user'));
     }
 
     // Affiche le formulaire de création
@@ -29,6 +31,7 @@ class HoraireController extends Controller
             'heure_fermeture' => 'required|date_format:H:i',
             'statut_ouverture' => 'required|boolean',
         ]);
+        $validated['user_id']=auth()->user()->id;
 
         Horaire::create($validated);
 

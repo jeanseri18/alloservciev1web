@@ -1,66 +1,54 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <h1>Dashboard</h1>
+<div class="container"><br>
+    <h1>Tableau de bord</h1>
 
     <!-- Statistiques -->
     <div class="row">
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Visites Mensuelles</h5>
-                    <p class="card-text">{{ $visitesMensuel }}</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Visites Annuelles</h5>
-                    <p class="card-text">{{ $visitesAnnuel }}</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Appels Mensuels</h5>
-                    <p class="card-text">{{ $appelsMensuel }}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="row mt-4">
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Appels Annuels</h5>
-                    <p class="card-text">{{ $appelsAnnuel }}</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Avis Mensuels</h5>
-                    <p class="card-text">{{ $avisMensuel }}</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Avis Annuels</h5>
-                    <p class="card-text">{{ $avisAnnuel }}</p>
-                </div>
-            </div>
-        </div>
+    <div class="col-12 col-sm-6 col-md-3">
+                            <div class="info-box"> <span class="info-box-icon text-bg-primary shadow-sm"> <i class="bi bi-gear-fill"></i> </span>
+                                <div class="info-box-content"> <span class="info-box-text">Visites Mensuelles</span> <span class="info-box-number">
+                                {{ $visitesMensuel }}                                        <small></small> </span> </div> <!-- /.info-box-content -->
+                            </div> <!-- /.info-box -->
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-3">
+                            <div class="info-box"> <span class="info-box-icon text-bg-primary shadow-sm"> <i class="bi bi-gear-fill"></i> </span>
+                                <div class="info-box-content"> <span class="info-box-text">Visites Annuelles</span> <span class="info-box-number">
+                                {{ $visitesAnnuel }}
+                                        <small></small> </span> </div> <!-- /.info-box-content -->
+                            </div> <!-- /.info-box -->
+                        </div><div class="col-12 col-sm-6 col-md-3">
+                            <div class="info-box"> <span class="info-box-icon text-bg-primary shadow-sm"> <i class="bi bi-gear-fill"></i> </span>
+                                <div class="info-box-content"> <span class="info-box-text">Appel mensuel</span> <span class="info-box-number">
+                                {{ $appelsMensuel }}                                        <small></small> </span> </div> <!-- /.info-box-content -->
+                            </div> <!-- /.info-box -->
+                        </div><div class="col-12 col-sm-6 col-md-3">
+                            <div class="info-box"> <span class="info-box-icon text-bg-primary shadow-sm"> <i class="bi bi-gear-fill"></i> </span>
+                                <div class="info-box-content"> <span class="info-box-text">Appel annuel</span> <span class="info-box-number">
+                                {{ $appelsAnnuel }}
+                                        <small></small> </span> </div> <!-- /.info-box-content -->
+                            </div> <!-- /.info-box -->
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-6">
+                            <div class="info-box"> <span class="info-box-icon text-bg-primary shadow-sm"> <i class="bi bi-gear-fill"></i> </span>
+                                <div class="info-box-content"> <span class="info-box-text">Avis Mensuels</span> <span class="info-box-number">
+                                {{ $avisMensuel }}
+                                        <small></small> </span> </div> <!-- /.info-box-content -->
+                            </div> <!-- /.info-box -->
+                        </div><div class="col-12 col-sm-6 col-md-6">
+                            <div class="info-box"> <span class="info-box-icon text-bg-primary shadow-sm"> <i class="bi bi-gear-fill"></i> </span>
+                                <div class="info-box-content"> <span class="info-box-text">Avis annuel</span> <span class="info-box-number">
+                                {{ $avisAnnuel }}
+                                        <small></small> </span> </div> <!-- /.info-box-content -->
+                            </div> <!-- /.info-box -->
+                        </div>
+     
+       
     </div>
     
     <!-- Chart.js -->
-    <div class="row mt-4">
+    <div class="row card container">
         <div class="col-md-12">
             <canvas id="visitesChart"></canvas>
         </div>

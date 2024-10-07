@@ -4,9 +4,14 @@
 
 @section('content')
     <div class="container">
-        <h1 class="mb-4">Services</h1>
-        <a href="{{ route('services.create') }}" class="btn btn-primary mb-3">Ajouter un Service</a>
-
+    <br>
+    <div class="row">
+        <div class="col-md-9">
+            <h3 class="mb-4">Liste des services</h3>
+</div>
+                <div class="col-md-3">
+        <a href="{{ route('services.create') }}" class="btn btn-primary mb-3">Ajouter un service</a>
+</div></div><hr>
         @if(session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
@@ -75,49 +80,45 @@
                 "responsive": true,
                 "lengthMenu": [10, 25, 50, 75, 100],
                 "language": {
-                    "search": "Filter records:",
-                    "lengthMenu": "Show _MENU_ records per page",
-                    "zeroRecords": "No matching records found",
-                    "info": "Showing page _PAGE_ of _PAGES_",
-                    "infoEmpty": "No records available",
-                    "infoFiltered": "(filtered from _MAX_ total records)"
+                "search": "Filtre:",
+                "lengthMenu": "Afficher _MENU_ par page",
+                "zeroRecords": "No matching records found",
+                "info": "Affichage de la page _PAGE_ sur _PAGES_",
+                "infoEmpty": "pas de données",
+                "infoFiltered": "(filtrer  _MAX_ total records)"
+            },
+            dom: '<"row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6"B>>t<"row"<"col-sm-12 col-md-5"i><"col-sm-12 col-md-7"p>>',
+            buttons: [
+                {
+                    extend: 'copyHtml5',
+                    title: 'Sous-catégories Report',
+                    text: '<i class="fas fa-copy"></i> copier',
+                    className: 'btn btn-secondary btn-sm'
                 },
-                dom: '<"row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6"B>>t<"row"<"col-sm-12 col-md-5"i><"col-sm-12 col-md-7"p>>',
-                buttons: [
-                    {
-                        extend: 'copyHtml5',
-                        title: 'Services Report',
-                        text: '<i class="fas fa-copy"></i> Copy',
-                        className: 'btn btn-secondary btn-sm'
-                    },
-                    {
-                        extend: 'csvHtml5',
-                        title: 'Services Report',
-                        text: '<i class="fas fa-file-csv"></i> CSV',
-                        className: 'btn btn-secondary btn-sm'
-                    },
-                    {
-                        extend: 'excelHtml5',
-                        title: 'Services Report',
-                        text: '<i class="fas fa-file-excel"></i> Excel',
-                        className: 'btn btn-secondary btn-sm'
-                    },
-                    {
-                        extend: 'pdfHtml5',
-                        title: 'Services Report',
-                        text: '<i class="fas fa-file-pdf"></i> PDF',
-                        className: 'btn btn-secondary btn-sm'
-                    },
-                    {
-                        extend: 'print',
-                        text: '<i class="fas fa-print"></i> Print',
-                        className: 'btn btn-secondary btn-sm'
-                    },
-                    {
-                        extend: 'colvis',
-                        text: '<i class="fas fa-columns"></i> Column Visibility',
-                        className: 'btn btn-secondary btn-sm'
-                    }
+                {
+                    extend: 'csvHtml5',
+                    title: 'Sous-catégories Report',
+                    text: '<i class="fas fa-file-csv"></i> CSV',
+                    className: 'btn btn-secondary btn-sm'
+                },
+                {
+                    extend: 'excelHtml5',
+                    title: 'Sous-catégories Report',
+                    text: '<i class="fas fa-file-excel"></i> Excel',
+                    className: 'btn btn-secondary btn-sm'
+                },
+                {
+                    extend: 'pdfHtml5',
+                    title: 'Sous-catégories Report',
+                    text: '<i class="fas fa-file-pdf"></i> PDF',
+                    className: 'btn btn-secondary btn-sm'
+                },
+                {
+                    extend: 'print',
+                    text: '<i class="fas fa-print"></i> imprimer',
+                    className: 'btn btn-secondary btn-sm'
+                },
+           
                 ],
                 initComplete: function () {
                     $('.dt-buttons').addClass('mb-3');

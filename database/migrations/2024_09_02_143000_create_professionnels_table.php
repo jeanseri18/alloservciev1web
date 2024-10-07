@@ -12,13 +12,16 @@ class CreateProfessionnelsTable extends Migration
             $table->string('nom');
             $table->string('domaine');
             $table->string('ville');
+            $table->string('commune');
+            $table->string('prixprestation');
             $table->text('detail')->nullable();
             $table->string('telephone');
             $table->string('image');
+            
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
-
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+          
         });
     }
 

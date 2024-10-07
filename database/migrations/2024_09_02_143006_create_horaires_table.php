@@ -13,6 +13,9 @@ class CreateHorairesTable extends Migration
             $table->time('heure_ouverture');
             $table->time('heure_fermeture');
             $table->boolean('statut_ouverture')->default(true);
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

@@ -21,8 +21,8 @@ class UserProfileController extends Controller
     public function update(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users,email,' . Auth::id(),
+            'name' => 'nullable|string|max:255',
+            'email' => 'nullable|string|email|max:255|unique:users,email,' . Auth::id(),
             'entreprise' => 'nullable|string|max:255',
             'registre_de_commerce' => 'nullable|string|max:255',
             'adresse' => 'nullable|string|max:255',
@@ -49,13 +49,13 @@ class UserProfileController extends Controller
             }
     
             // Stocker la nouvelle image
-            $imagePath = $request->file('image')->store('profile_images');
+            $imagePath = $request->file('image')->store('images', 'public');
             $validated['image'] = $imagePath;
         }
     
         $user->update($validated);
     
-        return redirect()->route('profile.edit')->with('success', 'Profil mis à jour avec succès.');
+        return redirect()->back()->with('successprofile', 'Profil mis à jour avec succès.');
     }
     
     public function updatePassword(Request $request)

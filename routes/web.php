@@ -14,6 +14,12 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\HoraireController;
 use App\Http\Controllers\DashboardController;
 
+use App\Http\Controllers\ClientController;
+
+Route::get('/clients', [ClientController::class, 'index'])->name('clients.index');
+Route::get('/clients/create', [ClientController::class, 'create'])->name('clients.create');
+Route::post('/clients', [ClientController::class, 'store'])->name('clients.store');
+Route::post('/clients/{id}/deactivate', [ClientController::class, 'deactivate'])->name('clients.deactivate');
 
 // Route pour la page d'accueil
 Route::get('/', [PublicController::class, 'welcome'])->name('welcome');
@@ -52,7 +58,7 @@ Route::prefix('services')->group(function () {
     Route::delete('/{service}', [ServiceController::class, 'destroy'])->name('services.destroy');
 });
 
-// Route pour afficher la liste des professionnels
+// Route pour afficher la liste des listofpro
 Route::get('/professionnels', [ProfessionnelController::class, 'index'])->name('professionnels.index');
 
 // Route pour afficher le formulaire de création
@@ -82,9 +88,6 @@ Route::get('/souscategories/{souscategorie}/edit', [SouscategorieController::cla
 Route::put('/souscategories/{souscategorie}', [SouscategorieController::class, 'update'])->name('souscategories.update');
 Route::delete('/souscategories/{souscategorie}', [SouscategorieController::class, 'destroy'])->name('souscategories.destroy');
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
 
 
 
@@ -105,10 +108,8 @@ Route::get('/categories/{category}/edit', [CategoryController::class, 'edit'])->
 Route::put('/categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
 Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 Route::get('/client/dashboard', [DashboardController::class, 'index'])->name('client.dashboard');
-Route::middleware(['auth'])->group(function () {
-    Route::get('/admin/dashboard', function () {
-        return view('dashboard.admin');
-    })->name('admin.dashboard');
+Route::get('/admin/dashboard', [DashboardController::class, 'admin'])->name('admin.dashboard');
+
 
 
 
@@ -125,4 +126,16 @@ Route::post('/actions/visit-profile/{user}', [ActionController::class, 'visitPro
 Route::post('/actions/make-call/{user}', [ActionController::class, 'makeCall'])->name('actions.makeCall');
 
     
-});
+
+
+
+
+Route::get('/search', [PublicController::class, 'searchentreprisebycategorie'])->name('search');
+Route::get('/search-entreprise', [PublicController::class, 'searchentreprisebycategorie'])->name('searchentreprise');
+Route::get('/listby-categorie/{id}/entreprise', [PublicController::class, 'showUsersByCategory'])->name('categorie.users');
+
+Route::get('/listofpro/recherche', [PublicController::class, 'searchprobycategorie'])->name('searchprobycategorie');
+Route::get('/detailentreprise/{id}', [PublicController::class, 'detailentreprise'])->name('detailentreprise');
+Route::get('/detailpro/{id}', [PublicController::class, 'detailpro'])->name('detailpro');
+Route::post('/avis-store', [PublicController::class, 'avisstore'])->name('avis.store');
+Route::get('/annuaire', [PublicController::class, 'annuair'])->name('annuaire.index');

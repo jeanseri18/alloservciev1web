@@ -4,8 +4,14 @@
 
 @section('content')
 <div class="container">
-    <h1 class="mb-4">Liste des Professionnels</h1>
-    <a href="{{ route('professionnels.create') }}" class="btn btn-primary mb-3">Ajouter un professionnel</a>
+<br>
+    <div class="row">
+        <div class="col-md-9">
+            <h3 class="mb-4">Liste des professionels</h3>
+</div>
+                <div class="col-md-3">    <a href="{{ route('professionnels.create') }}" class="btn btn-primary mb-3">Ajouter un professionnel</a>
+                </div>
+                </div><hr>
 
     @if(session('success'))
         <div class="alert alert-success mt-3">
