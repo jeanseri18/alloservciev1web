@@ -11,7 +11,14 @@
         @method('PUT')<hr/>
         <div class="form-group">
             <label for="nom">Nom</label>
-            <input type="text" name="nom" id="nom" class="form-control" value="{{ old('nom', $service->nom) }}" required>
+            <!--input type="text" name="nom" id="nom" class="form-control" value="{{ old('nom', $service->nom) }}" required-->
+            <select name="nom" class="form-control" required>
+        @foreach($corpsmetiers as $corpsmetier)
+        <option value="{{ $corpsmetier->nom }}" {{ $corpsmetier->nom == $service->nom ? 'selected' : '' }}>
+                    {{ $corpsmetier->nom }}
+                </option>
+        @endforeach
+                </select>
         </div><br>
         <div class="form-group">
             <label for="description">Description</label>

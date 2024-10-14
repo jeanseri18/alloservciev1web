@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Metier;
 
 use App\Models\Service;
 use Illuminate\Http\Request;
@@ -19,7 +20,9 @@ class ServiceController extends Controller
     // Affiche le formulaire de création
     public function create()
     {
-        return view('dashboard.service.create');
+        $id=Auth::user()->souscategorie_id;
+        $corpsmetiers =Metier::where('id_souscat','=',$id)->with('souscategorie')->get();
+        return view('dashboard.service.create', compact('corpsmetiers'));
     }
 
     // Stocke un nouveau service dans la base de données
@@ -51,7 +54,9 @@ class ServiceController extends Controller
     // Affiche le formulaire d'édition
     public function edit(Service $service)
     {
-        return view('dashboard.service.edit', compact('service'));
+        $id=Auth::user()->souscategorie_id;
+        $corpsmetiers =Metier::where('id_souscat','=',$id)->with('souscategorie')->get();
+        return view('dashboard.service.edit', compact('service','corpsmetiers'));
     }
 
     // Met à jour les informations d'un service

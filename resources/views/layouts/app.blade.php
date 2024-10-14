@@ -85,6 +85,7 @@
     $user = Auth::user();
 @endphp
 
+
 @if($user && $user->roles === 'admin')
 
                         <li class="nav-item">
@@ -106,7 +107,12 @@
                                 <p>Sous Categories</p>
                             </a>
                         </li>
-                        
+                        <li class="nav-item">
+                            <a href="{{ route('corpsmetier.index') }}" class="nav-link">
+                                <i class="nav-icon bi bi-circle text-info"></i>
+                                <p>Corps de metier</p>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a href="{{ route('clients.index') }}" class="nav-link">
                                 <i class="nav-icon bi bi-circle text-info"></i>

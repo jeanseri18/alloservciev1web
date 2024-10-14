@@ -12,7 +12,13 @@
         <h3>Ajouter un Service</h3><hr/>
         <div class="form-group">
             <label for="nom">Nom</label>
-            <input type="text" name="nom" id="nom" class="form-control" required>
+            <!--input type="text" name="nom" id="nom" class="form-control" required-->
+            <select name="nom" class="form-control" required>
+                    <!-- Remplir avec les sous-catégories disponibles -->
+                    @foreach($corpsmetiers as $corpsmetier)
+                        <option value="{{ $corpsmetier->nom }}">{{ $corpsmetier->nom }}</option>
+                    @endforeach
+                </select>
         </div><br>
         <div class="form-group">
             <label for="description">Description</label>
