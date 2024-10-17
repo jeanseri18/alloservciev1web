@@ -73,13 +73,16 @@
     @foreach($categories as $categorie)
       <div class="category-card">
         <a href="{{ route('categorie.users', $categorie->id) }}" class="card card-border-primary rounded-4" aria-label="Explorez les Mentors en Restaurant">
-          <div class="card-body d-flex flex-column gap-4 text-center">
+          <div class="card-body d-flex flex-column gap-4 text-center" >
             <div>
               <div class="icon-shape icon-xxl bg-light-primary rounded-circle">
                 <img src="{{ asset('storage/' . $categorie->image) }}" alt="Category Image" class="" style="width: 40px;">
               </div>
             </div>
-            <div>
+            <div style="  overflow: hidden;  /* Empêche le débordement de contenu hors de la carte */
+    height: auto;  /* La carte s'ajustera en fonction du contenu */
+    display: flex;  /* Utilisation de flexbox pour mieux gérer la disposition */
+    flex-direction: column;  /*">
               <h3 class="mb-0">{{ $categorie->nom }}</h3>
             </div>
           </div>
