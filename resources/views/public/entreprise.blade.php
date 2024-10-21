@@ -56,8 +56,8 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-12 mx-auto">
                 <div class="d-flex flex-column gap-2 text-left ">
-                    <h2 class="mb-0 h1 text-left">Categories</h2>
-                    <p class="mb-0 text-left">Choisissez une catégorie pour explorer les professionnels disponibles</p>
+                    <h2 class="mb-0 h1 text-left">Sous categorie</h2>
+                    <p class="mb-0 text-left">Choisissez une sous categorie pour explorer les professionnels disponibles</p>
                 </div><br>
                 <div class="btn-group-wrapper" style="overflow-x: auto; white-space: nowrap;">
     @foreach($souscategories as $souscategorie)

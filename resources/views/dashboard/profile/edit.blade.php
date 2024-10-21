@@ -7,7 +7,9 @@
    
 
         <div class="row">
-            <div class="col-lg-4">
+        <div class="col-lg-1">
+</div>
+            <div class="col-lg-3">
                 <div class="card mb-4">
                     <div class="card-body text-center">
                         <img src="{{ $user->image ? asset('storage/'.$user->image) : 'https://via.placeholder.com/150' }}"
@@ -25,8 +27,8 @@
                 </div>
             </div>
 
-            <div class="col-lg-8">
-                <div class="card mb-4">
+            <div class="col-lg-7">
+                <div class="card mb-2">
                     <div class="card-body">
                         @if(session('successprofile'))
                         <div class="alert alert-success text-left">
@@ -65,27 +67,27 @@
                 <h3 class="mt-4 text-left"> Informations Entreprise</h3>
                 <hr>
                 <div class="form-group">
-                    <label for="entreprise"><i class="fa fa-industry"></i> Nom de l'Entreprise</label>
+                    <label for="entreprise"> Nom de l'Entreprise</label>
                     <input type="text" name="entreprise" id="entreprise" class="form-control " value="{{ old('entreprise', $user->entreprise) }}">
                 </div>
                 <br>
                 <div class="form-group">
-                    <label for="registre_de_commerce"><i class="fa fa-file"></i> Registre de Commerce</label>
+                    <label for="registre_de_commerce"> Registre de Commerce</label>
                     <input type="text" name="registre_de_commerce" id="registre_de_commerce" class="form-control " value="{{ old('registre_de_commerce', $user->registre_de_commerce) }}">
                 </div>
                 <br>
                 <div class="form-group">
-                    <label for="adresse"><i class="fa fa-map-marker"></i> Adresse</label>
+                    <label for="adresse"> Adresse</label>
                     <input type="text" name="adresse" id="adresse" class="form-control " value="{{ old('adresse', $user->adresse) }}">
                 </div>
                 <br>
                 <div class="form-group">
-                    <label for="telephone"><i class="fa fa-phone"></i> Téléphone</label>
+                    <label for="telephone"> Téléphone</label>
                     <input type="text" name="telephone" id="telephone" class="form-control " value="{{ old('telephone', $user->telephone) }}">
                 </div>
                 <br>
                 <div class="form-group">
-                    <label for="mot_cle"><i class="fa fa-key"></i> Mot Clé</label>
+                    <label for="mot_cle"> Mot Clé</label>
                     <input type="text" name="mot_cle" id="mot_cle" class="form-control " value="{{ old('mot_cle', $user->mot_cle) }}">
                 </div><br>
                             <div class="form-group text-right">
@@ -103,19 +105,19 @@
                         @method('PUT')
 
                         <div class="form-group">
-                            <label for="current_password"><i class="fa fa-lock"></i> Mot de Passe Actuel</label>
+                            <label for="current_password">Mot de Passe Actuel</label>
                             <input type="password" name="current_password" id="current_password"
                                 class="form-control " required>
                         </div>
                         <br>
                         <div class="form-group">
-                            <label for="new_password"><i class="fa fa-lock"></i> Nouveau Mot de Passe</label>
+                            <label for="new_password">Nouveau Mot de Passe</label>
                             <input type="password" name="new_password" id="new_password"
                                 class="form-control " required>
                         </div>
                         <br>
                         <div class="form-group">
-                            <label for="new_password_confirmation"><i class="fa fa-lock"></i> Confirmer le Nouveau Mot
+                            <label for="new_password_confirmation"> Confirmer le Nouveau Mot
                                 de Passe</label>
                             <input type="password" name="new_password_confirmation" id="new_password_confirmation"
                                 class="form-control " required>
