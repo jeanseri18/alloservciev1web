@@ -79,12 +79,15 @@
                 <img src="{{ asset('storage/' . $categorie->image) }}" alt="Category Image" class="" style="width: 40px;">
               </div>
             </div>
+
             <div style="  overflow: hidden;  /* Empêche le débordement de contenu hors de la carte */
     height: auto;  /* La carte s'ajustera en fonction du contenu */
     display: flex;  /* Utilisation de flexbox pour mieux gérer la disposition */
     flex-direction: column;  /*">
               <h3 class="mb-0">{{ $categorie->nom }}</h3>
             </div>
+            
+
           </div>
         </a>
       </div>
