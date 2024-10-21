@@ -141,9 +141,3 @@ Route::post('/avis-store', [PublicController::class, 'avisstore'])->name('avis.s
 Route::get('/annuaire', [PublicController::class, 'annuair'])->name('annuaire.index');
 
 
-Route::get('corpsmetier', [CorpsMetierController::class, 'index'])->name('corpsmetier.index'); // Afficher tous les corps de métier
-Route::get('corpsmetier/create', [CorpsMetierController::class, 'create'])->name('corpsmetier.create'); // Afficher le formulaire de création
-Route::post('corpsmetier', [CorpsMetierController::class, 'store'])->name('corpsmetier.store'); // Ajouter un corps de métier
-Route::get('corpsmetier/{corpsmetier}/edit', [CorpsMetierController::class, 'edit'])->name('corpsmetier.edit'); // Afficher le formulaire d'édition
-Route::put('corpsmetier/{corpsmetier}', [CorpsMetierController::class, 'update'])->name('corpsmetier.update'); // Mettre à jour un corps de métier
-Route::delete('corpsmetier/{corpsmetier}', [CorpsMetierController::class, 'destroy'])->name('corpsmetier.destroy'); // Supprimer un corps de métier

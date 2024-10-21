@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Metier;
-
+use App\Models\SousCategorie;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -20,8 +19,8 @@ class ServiceController extends Controller
     // Affiche le formulaire de création
     public function create()
     {
-        $id=Auth::user()->souscategorie_id;
-        $corpsmetiers =Metier::where('id_souscat','=',$id)->with('souscategorie')->get();
+        $id=Auth::user()->categorie_id;
+        $corpsmetiers =SousCategorie::where('categorie_id','=',$id)->get();
         return view('dashboard.service.create', compact('corpsmetiers'));
     }
 
