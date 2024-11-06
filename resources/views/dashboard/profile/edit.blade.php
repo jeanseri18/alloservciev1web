@@ -9,23 +9,79 @@
         <div class="row">
         <div class="col-lg-1">
 </div>
-            <div class="col-lg-3">
-                <div class="card mb-4">
-                    <div class="card-body text-center">
-                        <img src="{{ $user->image ? asset('storage/'.$user->image) : 'https://via.placeholder.com/150' }}"
-                            alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
-                        <h5 class="my-3">{{ $user->name }}</h5>
-                      
-                        <h5 class="text-muted mb-4">{{ $user->email ?? 'Location not provided' }}</h5>
-                        <div class="d-flex justify-content-center mb-2">
-                            <button type="button" id="editImageBtn" class="btn btn-secondary btn-sm">
-                                <i class="fa fa-edit"></i> Modifier l'image
-                            </button>
-                        </div>
-                        <input type="file" name="image" id="image" class="form-control d-none">
-                    </div>
+<div class="col-lg-3">
+    <div class="card mb-4">
+        <div class="card-body text-center">
+            <!-- Image de l'utilisateur -->
+            <img id="avatarPreview" src="{{ $user->image ? asset('storage/'.$user->image) : 'https://via.placeholder.com/150' }}"
+                alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+            <h5 class="my-3">{{ $user->name }}</h5>
+            <h5 class="text-muted mb-4">{{ $user->email ?? 'Location not provided' }}</h5>
+
+            <!-- Formulaire pour la mise à jour de l'image -->
+            <form id="imageForm" action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+
+                <!-- Bouton "Modifier l'image" -->
+                <div class="d-flex justify-content-center mb-2">
+                    <button type="button" id="editImageBtn" class="btn btn-secondary btn-sm">
+                        <i class="fa fa-edit"></i> Modifier l'image
+                    </button>
                 </div>
-            </div>
+
+                <!-- Champ de fichier caché -->
+                <input type="file" name="image" id="imageInput" class="form-control d-none">
+
+                <!-- Bouton "Valider" (masqué par défaut) -->
+                <div class="d-flex justify-content-center mb-2">
+                    <button type="submit" id="validateImageBtn" class="btn btn-primary btn-sm d-none">
+                        <i class="fa fa-check"></i> Valider
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Récupérer les éléments HTML
+    const editImageBtn = document.getElementById('editImageBtn');
+    const validateImageBtn = document.getElementById('validateImageBtn');
+    const imageInput = document.getElementById('imageInput');
+    const avatarPreview = document.getElementById('avatarPreview');
+
+    // Clic sur le bouton "Modifier"
+    editImageBtn.addEventListener('click', function() {
+        imageInput.click(); // Ouvre la boîte de dialogue pour sélectionner une image
+    });
+
+    // Lorsqu'une image est sélectionnée
+    imageInput.addEventListener('change', function(event) {
+        // Si une image est sélectionnée
+        if (imageInput.files && imageInput.files[0]) {
+            // Affiche le bouton "Valider"
+            validateImageBtn.classList.remove('d-none');
+            // Masque le bouton "Modifier"
+            editImageBtn.classList.add('d-none');
+
+            // Aperçu de l'image sélectionnée
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                avatarPreview.src = e.target.result; // Met à jour l'aperçu
+            };
+            reader.readAsDataURL(imageInput.files[0]); // Lire le fichier d'image sélectionné
+        }
+    });
+
+    // Clic sur le bouton "Valider"
+    validateImageBtn.addEventListener('click', function() {
+        // Une fois le formulaire soumis, cacher le bouton "Valider" et réafficher "Modifier"
+        validateImageBtn.classList.add('d-none');
+        editImageBtn.classList.remove('d-none');
+    });
+</script>
+
 
             <div class="col-lg-7">
                 <div class="card mb-2">

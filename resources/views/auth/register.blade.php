@@ -3,6 +3,26 @@
 @section('title', 'Inscription')
 
 @section('content')
+<!-- Select2 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+<!-- jQuery (nécessaire pour Select2) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Select2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<style>
+    .select2-selection__rendered {
+    line-height: 40px !important;
+}
+.select2-container .select2-selection--single {
+    height: 40px !important;
+    width: 100% !important;
+}
+.select2-selection__arrow {
+    height: 40px !important;
+}
+</style>
 <div class="d-flex flex-column flex-lg-row flex-column-fluid">
     <!--begin::Aside-->
     <div class="d-flex flex-lg-row-fluid w-lg-50 bgi-size-cover bgi-position-center" style="background-image: url('{{ asset('assets/media/misc/auth-bg.png') }}')">
@@ -111,24 +131,23 @@
 
                     <!-- Catégorie -->
 
-
-<!-- Sous-catégorie -->
-<div class="fv-row mb-3">
-    <label for="souscategorie_id" class="form-label">Sous-catégorie</label>
-    <select class="form-control bg-transparent @error('souscategorie_id') is-invalid @enderror" id="souscategorie_id" name="souscategorie_id">
-        <option value="">Sélectionner une sous-catégorie</option>
-        @foreach($souscategories as $souscategorie)
-            <option value="{{ $souscategorie->id }}" {{ old('souscategorie_id') == $souscategorie->id ? 'selected' : '' }}>
-                {{ $souscategorie->nom_souscategorie }}
-            </option>
-        @endforeach
-    </select>
-    @error('souscategorie_id')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-    @enderror
-</div>
+       <!-- Sous-catégorie -->
+       <div class="fv-row mb-3">
+                        <label for="souscategorie_id" class="form-label">Sous-catégorie</label>
+                        <select class=" bg-transparent @error('souscategorie_id') is-invalid @enderror js-example-basic-single" id="souscategorie_id" name="souscategorie_id" style="height:80%;">
+                            <option value="">Cliquez pour sélectionner une sous-catégorie</option>
+                            @foreach($souscategories as $souscategorie)
+                                <option value="{{ $souscategorie->id }}" {{ old('souscategorie_id') == $souscategorie->id ? 'selected' : '' }}>
+                                    {{ $souscategorie->nom_souscategorie }}
+                                </option>
+                            @endforeach
+                        </select>
+                        @error('souscategorie_id')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
 
                     <hr/><h2>Reseaux sociaux</h2>
                     <hr/>
@@ -217,4 +236,9 @@
     </div>
     <!--end::Body-->
 </div>
+<script>
+    $(document).ready(function() {
+        $('#souscategorie_id').select2(  );
+    });
+</script>
 @endsection
